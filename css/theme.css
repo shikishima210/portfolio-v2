@@ -1,0 +1,201 @@
+/* =========================================================
+   テーマ:Design Project テイスト(カンプ V2 / Codex の _comp/comp.css から移植)
+   style.css・about.css の後に読み込んで、色・書体・質感だけを上書きする。
+   ========================================================= */
+:root {
+  --bg: #766ed8;
+  --bezel: #f7f881;
+  --paper: #f3f6ff;
+  --bar: #c5dafa;
+  --ink: #25234c;
+  --ink-2: #464166;
+  --ink-3: #464166;
+  --accent: #f9b480;
+  --accent-ink: #742e0e;
+  --cloud: #809af9;
+  --grid: #9cc7f2;
+  --ph: #c5ddff;
+  --line: #8984cb;
+  --indigo: #544dd8;
+  --yellow: #f7f881;
+  --title-gradient: linear-gradient(105deg, #93bdf1, #544dd8);
+  --window-gradient: linear-gradient(145deg, #e7efff 26%, #f9ffcd 66%);
+  --glass: linear-gradient(135deg, #fcfdfff7, #edf0fff5 72%, #fcffecf5);
+  --glass-shadow: inset 0 0 0 2px #fffc, 0 4px 14px #2b275040;
+  --sans: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --jp: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
+  --display: 'Chewy', 'Arial Rounded MT Bold', sans-serif;
+}
+[hidden] { display: none !important; }
+.bezel { border-width: clamp(2px, calc(4 * var(--u)), 4px); }
+.win { background: var(--window-gradient); border-color: var(--indigo); }
+/* 質感のノイズ(方眼の下に敷く) */
+.win::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: .14; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' d='M0 0h140v140H0z'/%3E%3C/svg%3E");
+}
+.titlebar { height: max(36px, calc(var(--bar-h) * var(--u))); background: var(--title-gradient); border-color: var(--indigo); }
+.dot { border-color: var(--indigo); }
+.dot:nth-child(2) { background: #f9f680; }
+.dot:nth-child(3) { background: #68a3f0; }
+.nav a, .winname, .tool-note, .dialog-bar > span:last-child {
+  background: #edf2ff;
+  border-radius: 5px;
+  padding: 2px 7px;
+}
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  font-weight: 400;
+  font-size: max(15px, calc(22 * var(--u)));
+  letter-spacing: .06em;
+}
+.nav a.on { background: #ffe9cb; }
+.winname, .role, .label-no, .label-meta, .label-hint { font-size: 12px; }
+.star path { fill: var(--yellow); stroke: var(--indigo); }
+.cloud .edge ellipse { fill: var(--indigo); }
+.cloud .fill ellipse { fill: inherit; }
+.cloud {
+  filter: drop-shadow(calc(7 * var(--u)) calc(7 * var(--u)) 0 #a7c4ff)
+          drop-shadow(calc(4 * var(--u)) calc(4 * var(--u)) 0 #99b7ff);
+}
+.logo span, .dialog-main, .photo h1, .contact-title {
+  font-family: var(--display);
+  font-weight: 400;
+  color: #dcecff;
+  -webkit-text-stroke: clamp(3px, .62vw, 9px) var(--indigo);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 3px 0 var(--indigo));
+}
+.logo span {
+  background: linear-gradient(#e6edff 15%, #a3cfff 88%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logo .l1 { font-size: calc(215 * var(--u)); }
+.logo .l2 { font-size: calc(143 * var(--u)); }
+.folder i, .folder b { border-color: var(--indigo); background: linear-gradient(#d4e6ff, #9cc7f2); }
+.folder b { font-size: max(12px, calc(18 * var(--u))); box-shadow: inset 0 0 0 1px #fff9, 1px 2px 3px #2b275040; }
+.folder.on i, .folder.on b { background: var(--yellow); color: var(--ink); }
+.folder:hover::after, .folder:focus-visible::after { opacity: 1; }
+.label, .doc, .dialog, .card, .list, .about-spec {
+  background: var(--glass);
+  box-shadow: var(--glass-shadow);
+  border-color: var(--indigo);
+}
+.label-no, .label-meta, .card-meta, .card-no { font-family: var(--jp); letter-spacing: .02em; }
+.label { padding: 11px 13px; gap: 6px; }
+.label-title { font-size: max(14px, calc(16 * var(--u))); }
+.label-hint { border-color: var(--line); }
+.chip { color: var(--ink); background: #eef2ff; }
+.chip.adopted { color: var(--ink); background: #f5f5bc; border-color: #929056; }
+.list-btn, .pill, .doc-close, .tool, .list-close, .back-mv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-color: var(--indigo);
+  background: var(--yellow);
+  color: var(--ink);
+}
+.doc-nav button { min-height: 36px; background: #eef2ff; border-color: var(--indigo); }
+.doc-nav button:disabled { cursor: default; color: var(--ink-2); background: #eef2ff; }
+/* 作品を開いたら、背景だけ暗くする(作品の 3D と詳細は明るいまま) */
+.layer.scrim { z-index: 2; inset: 0; width: auto; height: auto; background: #2b27508c; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
+body.is-open .scrim { opacity: 1; }
+.is-open .intro { visibility: hidden; }
+.doc-bar {
+  height: auto;
+  min-height: 46px;
+  padding: 4px 8px;
+  border-color: var(--indigo);
+  background: linear-gradient(105deg, #c5dafa, #afbaf5);
+}
+.doc-close { min-height: 36px; }
+.doc-name { font-size: 12px; line-height: 1.35; white-space: normal; }
+.doc-body { min-height: 0; overscroll-behavior: contain; }
+.p-title { font-size: max(18px, calc(28 * var(--u))); }
+.p-concept h3, .p-steps h3 i, .p-spec dt { font-size: 12px; }
+.p-concept p, .p-spec dd { font-size: max(13.5px, calc(15 * var(--u))); }
+.p-spec > div { grid-template-columns: max(86px, calc(90 * var(--u))) 1fr; }
+.p-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.p-shots button { aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: 6px; }
+.p-sum { background: #fff; border-color: var(--indigo); }
+.tool-note { font-size: 12px; }
+.tool { padding-block: 0; }
+.dialog { min-width: min(260px, calc(100% - 24px)); min-height: 178px; background: var(--window-gradient); }
+.dialog-bar { min-height: 30px; background: var(--title-gradient); border-color: var(--indigo); }
+.dialog-bar > span:last-child { left: max(62px, calc(72 * var(--u))); font-size: 12px; white-space: nowrap; }
+.dialog-sub, .dialog-main, .dialog-track { left: max(15px, calc(32 * var(--u))); }
+.dialog-sub { top: max(41px, calc(52 * var(--u))); font-size: max(13px, calc(15 * var(--u))); line-height: 1; }
+.dialog-main { top: max(57px, calc(69 * var(--u))); font-size: max(42px, calc(51 * var(--u))); -webkit-text-stroke-width: 5px; }
+.dialog-pct { top: max(106px, calc(122 * var(--u))); font-size: 14px; }
+.dialog-track { top: max(131px, calc(150 * var(--u))); height: max(10px, calc(14 * var(--u))); }
+.dialog-track i { background: var(--yellow); border-right: 1px solid var(--indigo); }
+/* 一覧:ウィンドウの内側(タイトルバーの下)に重ねる */
+.list {
+  inset: calc((var(--inset) + var(--win-b)) * var(--u) + max(36px, calc(var(--bar-h) * var(--u)))) calc((var(--inset) + var(--win-b)) * var(--u)) calc((var(--inset) + var(--win-b)) * var(--u));
+  margin: clamp(9px, 2vw, 24px);
+  padding: clamp(10px, 2vw, 26px);
+  border: 2px solid var(--indigo); border-radius: 12px;
+  scrollbar-width: thin;
+}
+.list-head { margin-bottom: 14px; padding-bottom: 9px; border-color: var(--indigo); }
+.list-head small { font-size: 12px; }
+.list-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; }
+.card { height: 100%; padding: 8px; gap: 4px; align-content: start; background: #f8faff; border-color: var(--indigo); }
+.card:hover { box-shadow: 4px 6px 0 #2b275033; }
+.card-img { aspect-ratio: 2.45; }
+.card-title { font-size: 14px; }
+.win-scroll { top: max(36px, calc(var(--bar-h) * var(--u))); }
+.page { background: transparent; }
+.photo { border: 2px solid var(--indigo); border-radius: 12px; box-shadow: var(--glass-shadow); aspect-ratio: 1290 / 400; }
+.photo img { border-radius: 9px; }
+.photo h1 { left: .08em; font-size: clamp(54px, 8vw, 120px); }
+.about-main, .about-cols > div, .contact {
+  padding: clamp(12px, 1.5vw, 20px);
+  border-radius: 10px;
+  background: #f6fafff7;
+}
+.about-main .about-lead { font-size: clamp(23px, 2.55vw, 38px); margin-bottom: 10px; font-weight: 900; }
+.about-main p { margin-bottom: 8px; }
+.about-spec { border: 2px solid var(--indigo); border-radius: 11px; padding: 4px 14px; }
+.about-spec > div { padding: 8px 0; }
+.about-spec > div:last-child { border: 0; }
+.about-cols { margin-top: 26px; }
+.skill-name { overflow-wrap: anywhere; }
+.skill-tag { font-size: 12px; }
+.contact { margin-top: 26px; padding-bottom: 20px; }
+.contact-title { font-size: clamp(50px, 8vw, 95px); }
+.contact-links a, .mail, .back-mv { display: inline-flex; align-items: center; min-height: 36px; }
+.contact-links a { text-decoration: underline; overflow-wrap: anywhere; }
+
+@media (max-aspect-ratio: 1/1) {
+  .bezel { inset: calc(5 * var(--u)); }
+  .nav { gap: 5px; right: 8px; }
+  .nav a { min-height: 30px; padding-inline: 6px; }
+  .logo span { -webkit-text-stroke-width: 5px; }
+  .logo .l1 { font-size: calc(88 * var(--u)); }
+  .logo .l2 { font-size: calc(55 * var(--u)); }
+  .intro { font-size: 12px; white-space: normal; width: calc(255 * var(--u)); }
+  .folder b { font-size: 14px; }
+  .label { padding: 8px 9px; gap: 5px; }
+  .label-head { gap: 5px; }
+  .label-list { display: inline-flex; align-items: center; color: var(--ink); border-color: var(--indigo); padding-inline: 8px; background: var(--yellow); }
+  .label-hint { padding-top: 5px; }
+  .label-meta .pill { min-height: 30px; padding-inline: 8px; letter-spacing: 0; }
+  .doc-bar { flex-wrap: wrap; justify-content: space-between; gap: 4px; }
+  .doc-name { flex-basis: 100%; order: 1; }
+  .doc-close, .doc-nav button, .tool, .list-close { min-height: 30px; }
+  .tools .tool-note { font-size: 12px; }
+  .list-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .card { padding: 6px; }
+  .card-img { aspect-ratio: 4 / 3; }
+  .photo { aspect-ratio: 1.7; }
+}
+
+/* 読み込み中など、ウィンドウ名が空のときは枠も出さない */
+.winname:empty { display: none; }
+/* 一覧の下の画面が透けないように */
+.list { background: #f6f8ff; }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HIKARU SUGISHIMA — GRAPHIC × DIGITAL FABRICATION</title>
+<meta name="description" content="名古屋文理大学 情報メディア学科3年 杉島輝のポートフォリオ。2028年3月卒業見込。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%222%22 y=%224%22 width=%2228%22 height=%2224%22 rx=%225%22 fill=%22%23f2ede3%22 stroke=%22%2316150f%22 stroke-width=%222.5%22/%3E%3Cpath d=%22M2 11h28%22 stroke=%22%2316150f%22 stroke-width=%222.5%22/%3E%3Ccircle cx=%227%22 cy=%227.5%22 r=%221.6%22 fill=%22%23e4572e%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chewy&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="mv loading">
+
+<div class="bezel" aria-hidden="true"></div>
+
+<div class="win" id="win">
+  <!-- 背景:ゆがんだグリッド -->
+  <canvas id="grid" aria-hidden="true"></canvas>
+
+  <!-- 星 -->
+  <div class="layer C stars pc" aria-hidden="true">
+      <svg class="star at" viewBox="0 0 24 24" style="--x:40;--y:200;--s:40;--d:0.0"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:690;--y:70;--s:34;--d:0.37"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:780;--y:160;--s:26;--d:0.74"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:870;--y:330;--s:22;--d:1.11"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:650;--y:430;--s:30;--d:1.48"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:430;--y:760;--s:26;--d:1.85"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:120;--y:700;--s:20;--d:2.22"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:300;--y:735;--s:24;--d:2.59"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:1150;--y:470;--s:22;--d:2.96"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:1300;--y:560;--s:26;--d:0.33"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:1190;--y:640;--s:18;--d:0.7"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:990;--y:700;--s:40;--d:1.07"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+  </div>
+  <div class="layer C stars sp" aria-hidden="true">
+      <svg class="star at" viewBox="0 0 24 24" style="--x:20;--y:60;--s:16;--d:0.0"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:320;--y:70;--s:14;--d:0.53"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:330;--y:300;--s:18;--d:1.06"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:20;--y:330;--s:14;--d:1.59"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+      <svg class="star at" viewBox="0 0 24 24" style="--x:300;--y:560;--s:16;--d:2.12"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z"/></svg>
+  </div>
+
+  <!-- 名前ロゴ + 雲 -->
+  <div class="layer L hero">
+    <svg class="cloud pc" viewBox="0 0 1388 848" aria-hidden="true"><defs><linearGradient id="cloud-pc" x2="0%" y2="100%"><stop stop-color="#F580F9"/><stop offset="1" stop-color="#809AF9"/></linearGradient></defs><g class="edge"><ellipse cx="393" cy="433.5" rx="178" ry="174.5"/><ellipse cx="618" cy="361.5" rx="178" ry="174.5"/><ellipse cx="701.5" cy="502" rx="161.5" ry="152"/><ellipse cx="318.5" cy="569.5" rx="161.5" ry="138.5"/><ellipse cx="543" cy="614.5" rx="178" ry="138.5"/></g><g class="fill" fill="url(#cloud-pc)"><ellipse cx="393" cy="433.5" rx="175" ry="171.5"/><ellipse cx="618" cy="361.5" rx="175" ry="171.5"/><ellipse cx="701.5" cy="502" rx="158.5" ry="149"/><ellipse cx="318.5" cy="569.5" rx="158.5" ry="135.5"/><ellipse cx="543" cy="614.5" rx="175" ry="135.5"/></g></svg>
+    <svg class="cloud sp" viewBox="0 0 366 820" aria-hidden="true"><defs><linearGradient id="cloud-sp" x2="0%" y2="100%"><stop stop-color="#F580F9"/><stop offset="1" stop-color="#809AF9"/></linearGradient></defs><g class="edge"><ellipse cx="125" cy="145" rx="87" ry="77"/><ellipse cx="225" cy="125" rx="87" ry="77"/><ellipse cx="265" cy="185" rx="77" ry="67"/><ellipse cx="105" cy="220" rx="77" ry="62"/><ellipse cx="205" cy="240" rx="87" ry="62"/></g><g class="fill" fill="url(#cloud-sp)"><ellipse cx="125" cy="145" rx="85" ry="75"/><ellipse cx="225" cy="125" rx="85" ry="75"/><ellipse cx="265" cy="185" rx="75" ry="65"/><ellipse cx="105" cy="220" rx="75" ry="60"/><ellipse cx="205" cy="240" rx="85" ry="60"/></g></svg>
+    <h1 class="logo at" style="--x:60.5;--y:235.5;--xs:12.5;--ys:89.5" aria-label="HIKARU SUGISHIMA">
+      <span class="l1" style="--x:0;--y:0;--xs:0;--ys:0">HIKARU</span>
+      <span class="l2" style="--x:110;--y:250;--xs:34;--ys:70">SUGISHIMA</span>
+    </h1>
+    <p class="intro at" style="--x:84;--y:96;--xs:58;--ys:238">杉島 輝 の作品集<br>グラフィック<span class="pc-i">デザイン</span> × デジタルファブリケーション</p>
+  </div>
+
+  <!-- 作品を開いたときに背景だけ暗くする膜 -->
+  <div class="layer C scrim" aria-hidden="true"></div>
+
+  <!-- 3Dの置き場所(目印。JSが読み取って作品を置く) -->
+  <div class="layer R slots" aria-hidden="true">
+    <div class="slot" data-slot="0"  data-r="14" style="--x:935;--y:225;--w:250;--h:330;--xs:155;--ys:335;--ws:160;--hs:210"></div>
+    <div class="slot" data-slot="1"  data-r="14" style="--x:867.5;--y:560;--w:125;--h:160;--xs:47.5;--ys:417;--ws:80;--hs:105"></div>
+    <div class="slot pc-slot" data-slot="2" data-r="14" style="--x:805.5;--y:686.5;--w:104;--h:133"></div>
+    <div class="slot" data-slot="open" data-r="6" style="--x:760;--y:229.5;--w:360;--h:480;--xs:95;--ys:80.5;--ws:175;--hs:240"></div>
+    <div class="slot" data-slot="exit" data-r="30" style="--x:560;--y:-160;--w:90;--h:110;--xs:20;--ys:-140;--ws:60;--hs:70"></div>
+    <div class="slot" data-slot="enter" data-r="0" style="--x:1330;--y:900;--w:90;--h:110;--xs:330;--ys:760;--ws:60;--hs:70"></div>
+  </div>
+
+  <canvas id="stage" aria-label="作品の3D。スクロールで次の作品、クリックで詳細"></canvas>
+  <div class="layer R flat-layer"><img class="flat" id="flat" alt="" hidden style="--x:935;--y:225;--w:250;--h:330;--xs:155;--ys:335;--ws:160;--hs:210"></div>
+
+  <!-- フォルダ = 作品一覧 -->
+  <nav class="layer TR folders-layer" id="folders" aria-label="作品を選ぶ"></nav>
+  <div class="layer TR list-btn-layer"><button class="list-btn at" id="listBtn" style="--x:1222;--y:500;--xs:244;--ys:552">▦ 一覧で見る</button></div>
+
+  <!-- 今の作品ラベル -->
+  <div class="layer BR ui-layer">
+    <div class="label at" id="label" style="--x:1062;--y:705;--xs:12;--ys:590">
+      <p class="label-head"><span class="label-no" id="labelNo">01</span><span class="label-title" id="labelTitle"></span><button class="label-list" id="listBtn2">▦ 一覧</button></p>
+      <p class="label-meta" id="labelMeta"></p>
+      <p class="label-hint"><span class="pc">スクロール・← → キーで次の作品へ</span><span class="sp">上下にスワイプで作品を切り替え</span></p>
+    </div>
+  </div>
+  <div class="layer BL ui-layer">
+    <p class="role at pc" style="--x:64;--y:800">GRAPHIC DESIGN × DIGITAL FABRICATION</p>
+  </div>
+
+  <!-- 作品ウィンドウ(詳細) -->
+  <div class="layer L doc-layer">
+    <article class="doc" id="doc" aria-hidden="true" aria-labelledby="docName">
+      <div class="doc-bar">
+        <button class="doc-close" id="docClose">✕ 閉じる</button>
+        <p class="doc-name" id="docName"></p>
+        <span class="doc-nav"><button id="prev" aria-label="前の作品">← 前へ</button><button id="next" aria-label="次の作品">次へ →</button></span>
+      </div>
+      <div class="doc-body" id="docBody" tabindex="0" role="region" aria-label="作品の説明"></div>
+    </article>
+  </div>
+  <div class="layer BR tools-layer">
+    <div class="tools at" id="tools" style="--x:1000;--y:785;--xs:12;--ys:322">
+      <button class="tool" id="flipBtn" hidden>裏面を見る</button>
+      <span class="tool-note">ドラッグで作品を回転</span>
+    </div>
+  </div>
+
+  <!-- 読み込み -->
+  <div class="dialog" id="loader" role="status" aria-live="polite">
+    <div class="dialog-bar"><span class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span>作品を読み込み中…</span></div>
+    <p class="dialog-sub">SUGISHIMA</p>
+    <p class="dialog-main">HIKARU</p>
+    <p class="dialog-pct"><span id="loaderPct">0</span>%</p>
+    <div class="dialog-track"><i id="loaderBar"></i></div>
+  </div>
+
+  <!-- タイトルバー -->
+  <header class="titlebar">
+    <span class="dots"><a class="dot" href="./" aria-label="HOME"></a><span class="dot"></span><span class="dot"></span></span>
+    <nav class="nav"><a href="./" class="on" aria-current="page">WORKS</a><a href="about.html">ABOUT</a><a href="about.html#contact">CONTACT</a></nav>
+    <p class="winname" id="winname"></p>
+  </header>
+</div>
+
+<div class="tag" id="tag"></div>
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="画像の拡大">
+  <button class="lightbox-close" id="lightboxClose">✕ 閉じる</button>
+  <img id="lightboxImg" alt="">
+</div>
+
+<!-- 作品一覧(全体を見渡す) -->
+<div class="list" id="list" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="listTitle">
+  <div class="list-head">
+    <h2 id="listTitle">作品一覧 <small>全11点</small></h2>
+    <button class="list-close" id="listClose">✕ 閉じる</button>
+  </div>
+  <ul class="list-grid" id="listGrid"></ul>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+}}
+</script>
+<script type="module" src="js/main.js"></script>
+<script>
+  // 最後の保険:スクリプトの読み込み自体に失敗しても、読み込み画面で止めない
+  setTimeout(function(){ if(document.body.classList.contains('loading')){ document.body.classList.remove('loading'); document.body.classList.add('no3d'); } }, 16000);
+</script>
+</body>
+</html>
